@@ -37,8 +37,18 @@ const main = async () => {
       })
     );
 
-    core.debug(`Changed files: ${changedFiles}`);
-    console.log(changedFiles);
+    /**
+     * Create a comment on the PR with the information we compiled from the
+     * list of changed files.
+     */
+    await octokit.rest.issues.createComment({
+      owner,
+      repo,
+      issue_number: pr_number,
+      body: `
+        ${changedFiles}
+      `
+    });
 
   } catch (error) {
     core.setFailed(error.message);
