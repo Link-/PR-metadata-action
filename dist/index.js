@@ -3490,6 +3490,7 @@ const main = async () => {
       })
     );
 
+    core.debug(`Changed files: ${changedFiles}`);
     console.log(changedFiles);
 
   } catch (error) {

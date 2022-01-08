@@ -15,5 +15,5 @@ jobs:
         with:
           owner: ${{ github.repository.owner }}
           repo: ${{ github.repository.name }}
-          pull_request_number: ${{ github.pull_request.number }}
+          pr_number: ${{ github.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
