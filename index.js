@@ -46,6 +46,7 @@ const main = async () => {
       repo,
       issue_number: pr_number,
       body: `
+        The files that are supposed to be changed: \n
         ${changedFiles}
       `
     });
