@@ -13,7 +13,7 @@ jobs:
       - name: Annotate PR
         uses: link-/PR-metadata-action@main
         with:
-          owner: ${{ github.repository.owner }}
-          repo: ${{ github.repository.name }}
-          pr_number: ${{ github.pull_request.number }}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          pr_number: ${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
