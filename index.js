@@ -29,7 +29,7 @@ const main = async () => {
      * results.
      * Reference: https://octokit.github.io/rest.js/v18#pulls-list-files
      */
-    const { changedFiles: data } = await octokit.paginate(
+    const { data: changedFiles } = await octokit.paginate(
       octokit.rest.pulls.listFiles({
         owner,
         repo,
