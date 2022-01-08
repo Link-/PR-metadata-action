@@ -29,13 +29,11 @@ const main = async () => {
      * results.
      * Reference: https://octokit.github.io/rest.js/v18#pulls-list-files
      */
-    const { data: changedFiles } = await octokit.paginate(
-      octokit.rest.pulls.listFiles, {
-        owner,
-        repo,
-        pull_number: pr_number,
-      }
-    );
+    const { data: changedFiles } = await octokit.rest.pulls.listFiles({
+      owner,
+      repo,
+      pull_number: pr_number,
+    });
 
     core.debug(`Changed files: ${JSON.stringify(changedFiles)}`);
 
