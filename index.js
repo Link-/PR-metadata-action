@@ -40,7 +40,15 @@ const main = async () => {
      * Contains the sum of all the additions, deletions and changes
      * in all the files in the Pull Request.
      **/
-    let diffData = changedFiles.reduce((acc, file) => {
+    let diffData = {
+      additions: 0,
+      deletions: 0,
+      changes: 0
+    };
+
+    // Reference for how to use Array.reduce():
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+    diffData = changedFiles.reduce((acc, file) => {
       acc.additions += file.additions;
       acc.deletions += file.deletions;
       acc.changes += file.changes;
