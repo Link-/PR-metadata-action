@@ -63,29 +63,30 @@ const main = async () => {
       /**
        * Add labels according to file types.
        */
-      switch(file.filename.endsWith('.md')) {
-        case '.md':
+      const fileExtension = file.filename.split('.').pop();
+      switch(fileExtension) {
+        case 'md':
           await octokit.rest.issues.addLabels({
             owner,
             repo,
             issue_number: pr_number,
             labels: ['markdown'],
           });
-        case '.js':
+        case 'js':
           await octokit.rest.issues.addLabels({
             owner,
             repo,
             issue_number: pr_number,
             labels: ['javascript'],
           });
-        case '.yml':
+        case 'yml':
           await octokit.rest.issues.addLabels({
             owner,
             repo,
             issue_number: pr_number,
             labels: ['yaml'],
           });
-        case '.yaml':
+        case 'yaml':
           await octokit.rest.issues.addLabels({
             owner,
             repo,
