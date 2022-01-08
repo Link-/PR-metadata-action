@@ -37,6 +37,8 @@ const main = async () => {
       })
     );
 
+    core.debug(`Changed files: ${changedFiles}`);
+
     /**
      * Create a comment on the PR with the information we compiled from the
      * list of changed files.
