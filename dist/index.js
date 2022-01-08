@@ -3490,7 +3490,7 @@ const main = async () => {
       })
     );
 
-    core.debug(`Changed files: ${changedFiles}`);
+    core.debug(`Changed files: ${JSON.stringify(changedFiles)}`);
 
     /**
      * Create a comment on the PR with the information we compiled from the
@@ -3502,7 +3502,7 @@ const main = async () => {
       issue_number: pr_number,
       body: `
         The files that are supposed to be changed: \n
-        ${changedFiles}
+        ${JSON.stringify(changedFiles)}
       `
     });
 
