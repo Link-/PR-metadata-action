@@ -10,4 +10,4 @@ This should work!
 
 This is it. Let's see
 
-New test
+New test.
