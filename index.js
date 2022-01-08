@@ -29,7 +29,7 @@ const main = async () => {
      * results.
      * Reference: https://octokit.github.io/rest.js/v18#pulls-list-files
      */
-    const changedFiles = await octokit.paginate(
+    const { changedFiles: data } = await octokit.paginate(
       octokit.rest.pulls.listFiles({
         owner,
         repo,
@@ -38,6 +38,13 @@ const main = async () => {
     );
 
     core.debug(`Changed files: ${JSON.stringify(changedFiles)}`);
+
+    // Loop over the files in changedFiles
+    for (const file of changedFiles) {
+      // Check if the file is a .md file
+      if (file.filename.endsWith('.md')) {
+      }
+    }
 
     /**
      * Create a comment on the PR with the information we compiled from the
